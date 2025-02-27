@@ -55,7 +55,7 @@
 
 <h2>Active posts</h2>
 
-<% matching_posts=Post.where({:board_id=>@the_board.id}).order({:expires_on => :asc})%>
+<% matching_posts=Post.where({:board_id=>@the_board.id, :expires_on=>(Date.today..)}).order({:expires_on => :asc})%>
 <table  border="1">
   <tr>
     <th>Title</th>
@@ -76,7 +76,7 @@
 
 <h2>Expired posts</h2>
 
-<% matching_posts=Post.where({:board_id=>@the_board.id}).order({:expires_on => :desc})%>
+<% matching_posts=Post.where({:board_id=>@the_board.id, :expires_on=>(...Date.today)}).order({:expires_on => :desc})%>
 <table border="1">
   <tr>
     <th>Title</th>
